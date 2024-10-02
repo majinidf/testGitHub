@@ -22,8 +22,9 @@
       const btns = document.querySelectorAll('.wrapper .btn');
 
       btns.forEach((ele,idx) => {
-        const is_active = ele.attributes('style').indexOf('-tab-active.png');
+        const is_active = ele.getAttribute('style').indexOf('-tab-active.png');
         if( is_active !== -1 ){
+          console.log(idx);
           window.parent.postMessage(
             {index: idx}
           );
