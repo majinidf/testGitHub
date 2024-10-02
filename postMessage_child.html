@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>postMessage Child</title>
+  <style>
+    .btn[style*='-tab-active.png'] {color:red; font-weight:700;}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="btn" style="background-image: url('images/gojoseon-tab-deactive.png'); margin-right: 10px;">0</div>
+    <div class="btn" style="background-image: url('images/samguk-tab-deactive.png'); margin-right: 10px;">1</div>
+    <div class="btn" style="background-image: url('images/goryeo-tab-active.png'); margin-right: 10px;">2</div>
+    <div class="btn" style="background-image: url('images/joseon-tab-deactive.png'); margin-right: 10px;">3</div>
+    <div class="btn" style="background-image: url('images/contemporary-tab-deactive.png');">4</div>
+  </div>
+  
+  <script>
+    window.addEventListener('DOMContentLoaded',(e)=>{
+      const btns = document.querySelectorAll('.wrapper .btn');
+
+      btns.forEach((ele,idx) => {
+        const is_active = ele.attributes('style').indexOf('-tab-active.png');
+        if( is_active !== -1 ){
+          window.parent.postMessage(
+            {index: idx}
+          );
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>
