@@ -26,12 +26,14 @@
         if( is_active !== -1 ){
           console.log(idx);
           window.parent.postMessage(
-            {index: idx}
+            {
+              index: idx
+            },
+            '*'
           );
         }
       });
     });
-
   </script>
 </body>
 </html>
