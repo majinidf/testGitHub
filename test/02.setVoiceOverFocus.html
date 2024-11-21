@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+</head>
+<body>
+  <button id="testfocus2">111</button>
+  <button onclick="document.querySelector('#testfocus2').focus()">222</button>
+  <button id="testfocus">333</button>
+  <button onclick="setVoiceOverFocus(this,document.querySelector('#testfocus'))">444</button>
+  <script>
+  function setVoiceOverFocus(el,element) {
+    element.blur()
+    el.setAttribute('aria-hidden',true)
+    el.style.visibility = 'hidden'
+    setTimeout(function(){
+      //el.removeAttribute('aria-hidden')
+      //el.setAttribute('aria-hidden',false)
+      //element.focus()
+    },100)
+  }
+  </script>
+  <style>
+  button:focus{border:3px solid red;}
+  </style>
+</body>
+</html>
